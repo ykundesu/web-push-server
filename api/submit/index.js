@@ -20,7 +20,9 @@ const send = o => webpush.sendNotification(o.subscription, JSON.stringify(o.payl
 })
 
 app.post('/api/submit', cors(), async (req, res) => {
-  request.post({url:'https://sssokuhoupusher-1-b0836240.deta.app/', form:req.body}, (error, response, body) => {res.json(req.body)});
+  request.post({url:'https://sssokuhoupusher-1-b0836240.deta.app/', headers: {
+    "content-type": "application/json"
+  },body:JSON.stringify(req.body)}, (error, response, body) => {res.json(body)});
   //res.json(await send(req.body))
 })
 
