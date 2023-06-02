@@ -28,9 +28,4 @@ app.post('/api/send', cors(), async (req, res) => {
   res.json(await send(req.body))
 })
 
-app.post('/api/submit', cors(), async (req, res) => {
-  request.post({url:'https://sssokuhoupusher-1-b0836240.deta.app/', form:req.body}, (error, response, body) => {});
-  res.json(await send(req.body))
-})
-
 export default app
