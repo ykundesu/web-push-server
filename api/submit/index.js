@@ -20,8 +20,8 @@ const send = o => webpush.sendNotification(o.subscription, JSON.stringify(o.payl
 })
 
 app.post('/api/submit', cors(), async (req, res) => {
-  request.post({url:'https://sssokuhoupusher-1-b0836240.deta.app/', form:req.body}, (error, response, body) => {});
-  res.json(await send(req.body))
+  request.post({url:'https://sssokuhoupusher-1-b0836240.deta.app/', form:req.body}, (error, response, body) => {res.json(body)});
+  
 })
 
 export default app
