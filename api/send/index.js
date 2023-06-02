@@ -5,7 +5,7 @@ const app = express()
 app.use(cors())
 app.use(express.json({ type: '*/*' }))
 
-import webpush from 'web-push'
+const webpush = require('web-push');
 
 const defaultVapidDetails = {
   subject: 'mailto:example@yourdomain.org',
